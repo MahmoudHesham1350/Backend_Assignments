@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'welcome/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Features</h1>
+        <h2>Project features: </h2>
+        <ul>
+            {% for feature in features %}
+                <li>{{ feature }}</li>
+            {% endfor %}
+        </ul>
+        
+        <div class="nav-links">
+            <a href="{% url 'welcome' %}">Home</a>
+        </div>
+        
+
+    </div>
+</body>
+</html>
