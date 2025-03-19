@@ -1,0 +1,4 @@
+3-9= -6
+Invalid,you divide by zero in this operation
+9+1= 10
+8*4= 32
