@@ -3,11 +3,11 @@ with open("input.txt",'r') as file:
         
         line = line.strip()  # remove any newline character ('\n')
         
-        # validate if the operation operands and operation is correct or not 
+        # validate if the operands and operation are correct or not 
         if len(line)!=3 or not line[0].isdigit() or not line[2].isdigit() or not line[1] in '+-/*':
             print("invalid input")
 
-            # clarify if there are any error in the operation and wrte in the file
+            # clarify if there are any error in the operation and write in the file
             with open("output.txt",'a') as output:
                 output.write("this operation is not valid "+'\n')
             
