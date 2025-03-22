@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'BlogSystem',  # app 1
+    'account',     # app 2
+    'rest_framework',  
+    'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +54,22 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True 
+# ✅ Only allow your frontend (best practicies)
+#What it does:
+#This allows any frontend (any website, any domain) to make requests to your API.
+#It effectively removes CORS restrictions, meaning your API can be accessed from anywhere.
+
+# Allow all methods (GET, POST, PUT, DELETE, etc.)
+CORS_ALLOW_METHODS = ["*"]
+
+# Allow all headers
+# Headers contain extra information, such as Authorization, Content-Type, X-Custom-Header, etc.
+CORS_ALLOW_HEADERS = ["*"]
+
+# It allows cookies and authentication tokens (like session ID, JWT, or CSRF token) to be sent along with requests.
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'Blog.urls'
 
@@ -71,6 +91,24 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Blog.wsgi.application'
 
+
+#  JWT
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=2),  # Extend access token to 1 hour
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=14),  # Allow refresh for 7 days
+    "ROTATE_REFRESH_TOKENS": True,  # Issue a new refresh token on each use
+    "BLACKLIST_AFTER_ROTATION": True,  # Blacklist old refresh tokens
+    "AUTH_HEADER_TYPES": ("Bearer",),  # Ensure token is passed as "Bearer <token>"
+}
+
+# for restframework
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
