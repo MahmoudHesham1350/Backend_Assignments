@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>edit comment</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">save</button>
+    </form>
+    <a href="{% url 'listPost' post.id %} " class = "button-link">back</a>
+    {% endblock %}

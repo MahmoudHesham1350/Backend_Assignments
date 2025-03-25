@@ -1,0 +1,29 @@
+    {% extends 'base.html' %}
+    {% block content %}
+    <table class="table table-bordered">
+    <thead>
+        <tr>
+        <th>title</th>
+        <th>content</th>
+        <th>author</th>
+        <th>published date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <a href="{% url 'createPost' %}" class = "button-link success">add</a>
+        {% for post in posts %}
+        <tr>
+        <td>{{ post.title }}</td>
+        <td>{{ post.content }}</td>
+        <td>{{ post.author }}</td>
+        <td>{{ post.published_date }}</td>
+        <td>
+            <a href="{% url 'updatePost' post.id %}"class = "button-link success">edit</a>
+            <a href="{% url 'deletePost' post.id %}"class = "button-link danger">delete</a>
+            <a href="{% url 'listPost' post.id %}"class = "button-link">view post</a>
+        </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+    {% endblock %}

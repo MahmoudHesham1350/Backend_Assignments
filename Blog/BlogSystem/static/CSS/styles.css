@@ -1,0 +1,135 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Headings */
+h1 {
+    font-size: 2rem;
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #0056b3;
+    margin-top: 15px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #343a40;
+}
+
+/* Paragraphs */
+p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Forms */
+form {
+    max-width: 500px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button, input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #0056b3;
+}/* Default link style */
+/* General button style for links */
+a.button-link {
+    display: inline-block;  /* Make it behave like a button */
+    padding: 10px 20px;  /* Add padding for button-like feel */
+    background-color: #007bff;  /* Blue background */
+    color: white;  /* White text */
+    text-decoration: none;  /* Remove underline */
+    border-radius: 5px;  /* Rounded corners */
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    transition: background 0.3s ease;
+    border: 1px solid #007bff;  /* Border for button feel */
+}
+
+/* Hover effect */
+a.button-link:hover {
+    background-color: #0056b3;  /* Darker blue */
+    border-color: #0056b3;
+}
+
+/* Red button for delete actions */
+a.button-link.danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+a.button-link.danger:hover {
+    background-color: #a71d2a;
+    border-color: #a71d2a;
+}
+
+/* Green button for success actions */
+a.button-link.success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+a.button-link.success:hover {
+    background-color: #1e7e34;
+    border-color: #1e7e34;
+}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1> Title : {{ post.title }}</h1>
+    <h2> Content : {{ post.content }}</h2>
+    <h3>user : {{ post.author }}</h3>
+    <h2>created at : {{ post.published_date }}</h2>
+        <a href="{% url 'updatePost' post.id %}"  class = "button-link success">edit</a>
+        <a href="{% url 'deletePost' post.id %}"  class = "button-link danger">delete</a>
+        <h2>Comments</h2>
+    {% for comment in comments%}
+        <p>user : {{comment.post.author}} </p>
+        <p>comment : {{ comment.comment }}</p>
+        <p>created at : {{ comment.created_at }}</p>
+            <a href="{% url 'commentUpdate' comment.id %}" class = "button-link success">edit</a>
+            <a href="{% url 'commentDelete' comment.id %}" class = "button-link danger">delete</a>
+        </br></br></br>
+        
+        {% endfor %}
+<hr>
+    <h2>Add new comment</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">send</button>
+    </form>
+
+    <a href="{% url 'listPosts' %}" class = "button-link">back</a>
+{% endblock %}
