@@ -38,6 +38,8 @@ def main_menu():
         else:
             break
 
+
+
 # Add task function
 def add_task():
     # The task dictionary
@@ -45,7 +47,7 @@ def add_task():
     # The task description
     description = input('Enter Your task description : ')
     # The task description validation
-    while description == '':
+    while not description:
         print('No task description has been added')
         description = input('Enter Your task description : ')
     # The task description execution
@@ -95,7 +97,7 @@ def add_task():
     while True:
         try :
             year = int(year)
-            if year > 9999 or year < 1:
+            if year > 2050 or year < 2025:
                 year = input('Please, Enter valid year number : ')
             else:
                 break
@@ -108,12 +110,14 @@ def add_task():
     Tasks.append(task)
     print('Task Added Successfully')
 
+
+
 # View tasks function
 def view_tasks():
     # The tasks validation
     if len(Tasks)==0 :
         print()
-        print('There is no tasks')
+        print('There are no tasks')
         print()
         return
     # counter to enumerate the tasks when it's viewed
@@ -131,11 +135,13 @@ Task {counter} :-
         ''')
         counter+=1
 
+
+
 # Update task function
 def update_task():
     # The tasks validation
     if len(Tasks)==0 :
-        print('There is no tasks to update')
+        print('There are no tasks to be updated')
         return
     # The tasks display
     view_tasks()
@@ -234,10 +240,12 @@ def update_task():
         Tasks[task_index - 1]['due date'] = due_date
         print(f'date for task {task_index} has been updated successfully')
 
+
+
 def delete_task():
     # The tasks validation
     if len(Tasks)==0 :
-        print('No Tasks to delete')
+        print('No Tasks to be deleted')
         return
     # Tasks display
     view_tasks()
